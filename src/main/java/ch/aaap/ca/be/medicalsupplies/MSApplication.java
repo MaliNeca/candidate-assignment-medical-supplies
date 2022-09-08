@@ -225,7 +225,7 @@ public class MSApplication {
         );
     }
     public static <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {
-        Set<Object> seen = ConcurrentHashMap.newKeySet();
-        return t -> seen.add(keyExtractor.apply(t));
+        Set<Object> existingObjects = ConcurrentHashMap.newKeySet();
+        return t -> existingObjects.add(keyExtractor.apply(t));
     }
 }
